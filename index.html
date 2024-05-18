@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Panorama Viewer</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #panorama-container {
+            width: 100%;
+            height: 100vh;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="panorama-container"></div>
+    
+    <!-- Panolens.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/panolens@0.11.0/build/panolens.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const panoramaImage = 'https://yourdomain.com/path/to/your/panorama.jpg'; // Replace with your image URL
+            const container = document.getElementById('panorama-container');
+            const panorama = new PANOLENS.ImagePanorama(panoramaImage);
+            const viewer = new PANOLENS.Viewer({ container: container });
+
+            viewer.add(panorama);
+        });
+    </script>
+</body>
+</html>
